@@ -1,9 +1,6 @@
 package com.authorizationsystem.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -18,6 +15,8 @@ public class User {
 
     private String password;
 
+    @ManyToMany
+    @JoinTable(name="user_role", joinColumns = @JoinColumn(name="userId"), inverseJoinColumns = @JoinColumn(name="roleId"))
     private Set<Role> roles = new HashSet<>();
 
     public int getUserId() {
