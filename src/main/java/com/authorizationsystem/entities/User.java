@@ -16,7 +16,7 @@ public class User {
     private String password;
 
     @ManyToMany
-    @JoinTable(name="user_role", joinColumns = @JoinColumn(name="userId"), inverseJoinColumns = @JoinColumn(name="roleId"))
+    @JoinTable(name="user_role", joinColumns = @JoinColumn(name = "role_id"), inverseJoinColumns = @JoinColumn(name="user_id"))
     private Set<Role> roles = new HashSet<>();
 
     public int getUserId() {
@@ -47,7 +47,7 @@ public class User {
         return roles;
     }
 
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
+    public void setRoles(Set<Role> role) {
+        this.roles = role;
     }
 }
