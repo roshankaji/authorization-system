@@ -17,24 +17,24 @@ user_id
 role_id
 
 Database commands:
-create database authorize_db;
+_create database_ authorize_db;
 
-use authorize_db;
+_use_ authorize_db;
 
-CREATE TABLE user
+_CREATE TABLE user_
 (
 user_id int PRIMARY KEY auto_increment NOT NULL,
 username VARCHAR(20) unique NOT NULL,
 password varchar(25) NOT NULL
 );
 
-CREATE TABLE role
+_CREATE TABLE role_
 (
 role_id int PRIMARY KEY auto_increment NOT NULL,
 rolename VARCHAR(20) unique NOT NULL
 );
 
-CREATE TABLE user_role
+_CREATE TABLE_ user_role
 (
 user_id int,
 role_id int ,
@@ -44,11 +44,11 @@ foreign key(role_id) references role(role_id)
 
 **Note:Change database name and authentication details(username/password) in application.properties accordingly**
 
-**Public API**
+###Public API
 1./user/register(registers a new user)
 2./user/login(token will be generated after successful login)
 
-**Private API**
+###Private API
 1./user/API1
 2./user/API2
 
