@@ -1,9 +1,9 @@
 package com.authorizationsystem.controller;
 
 import com.authorizationsystem.entities.User;
-import com.authorizationsystem.repository.UserRepository;
 import com.authorizationsystem.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,9 +16,11 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @Autowired
-    UserRepository userRepository;
-
+    /**
+     * Method to register user
+     *
+     * @param user user object
+     */
     @RequestMapping(method = RequestMethod.POST, value = "/register")
     public void registerUser(@RequestBody User user) {
 
@@ -26,15 +28,15 @@ public class UserController {
 
     }
 
+    /**
+     * Method for user login
+     *
+     * @param user user object
+     * @return response
+     * @throws Exception to be thrown on failure
+     */
     @RequestMapping(method = RequestMethod.POST, value = "/login")
-    public void userLogin(@RequestBody User user){
-        User dbUser = userRepository.findByUsername(user.getUsername());
-
-        if(user.getPassword().equals(dbUser.getPassword())) {
-            System.out.println("Login Successful");
-
-        }else {
-            System.out.println("Invalid username/password");
-        }
+    public ResponseEntity userLogin(@RequestBody User user) throws Exception {
+       return userService.userLogin(user);
     }
 }
