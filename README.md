@@ -46,11 +46,15 @@ foreign key(role_id) references role(role_id)
 
 ###Public API
 1./user/register(registers a new user)
+
 2./user/login(token will be generated after successful login)
 
 ###Private API
 1./user/API1
+
 2./user/API2
 
+
 **Steps to Run**
+
 Start the main application - AuthorizationSystemApplication
