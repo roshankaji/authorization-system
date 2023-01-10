@@ -37,6 +37,26 @@ public class UserController {
      */
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     public ResponseEntity userLogin(@RequestBody User user) throws Exception {
-       return userService.userLogin(user);
+        return userService.userLogin(user);
+    }
+
+    /**
+     * Private API
+     *
+     * @return hardcoded string
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/API1")
+    public String privateAPI1() {
+        return "Successfully accessed API1";
+    }
+
+    /**
+     * Private API
+     *
+     * @return hardcoded string
+     */
+    @RequestMapping(method = RequestMethod.POST, value = "/API2")
+    public String privateAPI2() {
+        return "Successfully accessed API2";
     }
 }
